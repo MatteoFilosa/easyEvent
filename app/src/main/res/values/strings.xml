@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">easyEvent</string>
+    <string name="welcome_to_easyevent">Welcome to easyEvent!</string>
+    <string name="login"> Login:</string>
+    <string name="e_mail">e-mail</string>
+    <string name="password">password</string>
+
+</resources>
