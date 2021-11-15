@@ -67,5 +67,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
 
+    <androidx.viewpager2.widget.ViewPager2
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="70dp"
+        android:paddingEnd="70dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
