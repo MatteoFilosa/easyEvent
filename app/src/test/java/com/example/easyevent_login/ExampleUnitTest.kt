@@ -1,4 +1,4 @@
-package com.example.easyevent
+package com.example.easyevent_login
 
 import org.junit.Test
 
