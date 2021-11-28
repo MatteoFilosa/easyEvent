@@ -1,11 +1,10 @@
 <resources>
-    <string name="app_name">easyEvent</string>
-    <string name="welcome_to">Welcome to</string>
-    <string name="easyEvent">easyEvent</string>
-    <string name="login"> Login:</string>
-    <string name="e_mail">e-mail</string>
-    <string name="password">password</string>
-    <string name="register_now">Register now!</string>
-    <string name="not_a_user_yet">Not a user yet?</string>
-
+    <string name="app_name">EasyEvent-login</string>
+    <string name="welcome_to_easyevent">Welcome to\nEasyEvent</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="username">Username</string>
+    <string name="register">Register</string>
+    <string name="password">Password</string>
+    <string name="please_login">Please login</string>
+    <string name="login">Login</string>
 </resources>

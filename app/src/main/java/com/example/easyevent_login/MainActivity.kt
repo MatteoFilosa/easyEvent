@@ -1,4 +1,4 @@
-package com.example.easyevent
+package com.example.easyevent_login
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
