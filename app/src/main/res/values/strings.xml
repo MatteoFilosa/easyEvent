@@ -10,4 +10,5 @@
     <!-- Facebook application ID and custom URL scheme (app ID prefixed by 'fb'). -->
     <string name="facebook_application_id" translatable="false">easyEvent</string>
     <string name="facebook_login_protocol_scheme" translatable="false">easyEvent</string>
+    <string name="logout">Logout</string>
 </resources>
