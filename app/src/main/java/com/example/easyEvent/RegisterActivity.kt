@@ -54,12 +54,12 @@ class RegisterActivity : AppCompatActivity() {
 
                                     Toast.makeText(
                                         this@RegisterActivity,
-                                        "You are registered successfully.",
+                                        "You have registered successfully.",
                                         Toast.LENGTH_SHORT
                                     ).show()
 
                                     val intent =
-                                        Intent(this@RegisterActivity, MainActivity::class.java)
+                                        Intent(this@RegisterActivity, UserInfosActivity::class.java)
                                     intent.flags =
                                         Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                                     intent.putExtra("user_id", firebaseUser.uid)

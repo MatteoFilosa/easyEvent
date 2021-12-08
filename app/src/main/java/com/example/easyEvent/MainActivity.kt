@@ -15,7 +15,8 @@ class MainActivity : AppCompatActivity() {
         val logout_btn = findViewById<TextView>(R.id.logout_button)
 
         val userId = intent.getStringExtra("user_id")
-        userDisplayed.text = "User ID :: $userId"
+        val email = intent.getStringExtra("email_id")
+        userDisplayed.text = "email :: $email"
 
         logout_btn.setOnClickListener{
 
