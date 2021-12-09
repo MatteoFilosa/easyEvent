@@ -11,4 +11,11 @@
     <string name="facebook_application_id" translatable="false">easyEvent</string>
     <string name="facebook_login_protocol_scheme" translatable="false">easyEvent</string>
     <string name="logout">Logout</string>
+    <string name="please_fill_in_your_personal_data">Please fill in your personal data to complete the registration.</string>
+    <string name="name">Name</string>
+    <string name="submit">Submit</string>
+    <string name="surname">Surname</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="age">Age</string>
 </resources>
