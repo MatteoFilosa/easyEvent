@@ -11,9 +11,12 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import android.widget.Toast
+import com.firebase.ui.auth.data.model.User
+import com.google.firebase.database.FirebaseDatabase
 
 
 class RegisterActivity : AppCompatActivity() {
+    //class User(val uid: String, val email:String, val password: String)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
@@ -52,16 +55,16 @@ class RegisterActivity : AppCompatActivity() {
                                     //Firebase registered user
                                     val firebaseUser: FirebaseUser = task.result!!.user!!
 
-                                    Toast.makeText(
+
+
+                                    /*Toast.makeText(
                                         this@RegisterActivity,
                                         "You have registered successfully.",
                                         Toast.LENGTH_SHORT
-                                    ).show()
+                                    ).show()*/
 
-                                    val intent =
-                                        Intent(this@RegisterActivity, UserInfosActivity::class.java)
-                                    intent.flags =
-                                        Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                    val intent = Intent(this@RegisterActivity, UserInfosActivity::class.java)
+                                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                                     intent.putExtra("user_id", firebaseUser.uid)
                                     intent.putExtra("email_id", email)
                                     startActivity(intent)
