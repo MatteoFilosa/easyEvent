@@ -24,6 +24,7 @@ class RegisterActivity : AppCompatActivity() {
         val reg_btn = findViewById<TextView>(R.id.register_button)
         val email_field = findViewById<TextView>(R.id.username_form_edit_text)
         val psw_field = findViewById<TextView>(R.id.password_form_edit_text)
+        val psw_field_confirm = findViewById<TextView>(R.id.password_form_edit_text_confirm)
         reg_btn.setOnClickListener {
             when {
                 TextUtils.isEmpty(email_field.text.toString().trim { it <= ' ' }) -> {
@@ -40,6 +41,15 @@ class RegisterActivity : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
+                psw_field.text.toString() != psw_field_confirm.text.toString() -> {
+                    Toast.makeText(
+                        this@RegisterActivity,
+                        "The passwords don't match!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                }
+
                 else -> {
 
                     val email: String = email_field.text.toString().trim { it <= ' '}
