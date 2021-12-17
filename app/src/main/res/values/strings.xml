@@ -22,4 +22,5 @@
     <string name="upload_profile_picture_here">Upload profile picture</string>
     <string name="gender">Gender</string>
     <string name="email">email</string>
+    <string name="sign_out">Sign out</string>
 </resources>
