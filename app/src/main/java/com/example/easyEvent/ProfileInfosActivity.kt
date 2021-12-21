@@ -1,61 +1,139 @@
 package com.example.easyEvent
 
+import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
+import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import com.google.firebase.database.R
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.ktx.storage
+import com.squareup.picasso.Picasso
+import de.hdodenhof.circleimageview.CircleImageView
+import java.io.File
+
 
 class ProfileInfosActivity : AppCompatActivity() {
 
-    lateinit var auth: FirebaseAuth
-    var databaseReference :  DatabaseReference? = null
-    var database: FirebaseDatabase? = null
+    var check = 0
+    lateinit var imageUri : Uri
+    var REQUEST_CODE = 100
+    lateinit var propic: CircleImageView
+
+
+    var database = FirebaseDatabase.getInstance("https://easyevent-5730d-default-rtdb.europe-west1.firebasedatabase.app/").getReference()
+    var auth = FirebaseAuth.getInstance()
+    val uid = FirebaseAuth.getInstance().currentUser!!.uid
+    val uidRef = database.child("users").child(uid)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile_infos)
 
-        auth = FirebaseAuth.getInstance()
-        database = FirebaseDatabase.getInstance()
-        databaseReference = database?.reference!!.child("profile")
+        var storageRef = FirebaseStorage.getInstance("gs://easyevent-5730d.appspot.com").reference.child("images/$uid")
+
         val emailText = findViewById<TextView>(R.id.email)
         val nameText = findViewById<TextView>(R.id.name)
         val surnameText = findViewById<TextView>(R.id.surname)
         val ageText = findViewById<TextView>(R.id.age)
-        val signout_btn = findViewById<TextView>(R.id.signout_button)
-        loadProfile()
-    }
+        val save_button = findViewById<TextView>(R.id.save_button)
+        propic = findViewById<CircleImageView>(R.id.profile_image)
 
-    private fun loadProfile() {
+        imageUri = Uri.parse("android.resource://com.example.easyEvent/drawable/default_propic")
+
 
         val user = auth.currentUser
-        val userreference = databaseReference?.child(user?.uid!!)
 
-        emailText.text = "Email  -- > "+user?.email
 
-        userreference?.addValueEventListener(object: ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
+        emailText.text = "Email  -- > " + user?.email
 
-                nameText.text = "Firstname - - > "+snapshot.child("name").value.toString()
-                surnameText.text = "Last name - -> "+snapshot.child("surname").value.toString()
-                ageText.text = "Last name - -> "+snapshot.child("age").value.toString()
+        uidRef.get().addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val snapshot = task.result
+                nameText.text =
+                    "Firstname - - > " +  snapshot!!.child("name").getValue(String::class.java)
+                surnameText.text =
+                    "Surname - - > " +  snapshot.child("surname").getValue(String::class.java)
+
+                ageText.text =
+                    "Age- - > " + snapshot.child("age").getValue(Int::class.java)
+
+
+
+            } else {
+                Log.d("TAG", task.exception!!.message!!)
+            }
+
+
+            //Downalod original propic
+            storageRef.downloadUrl.addOnSuccessListener { uri ->
+                Picasso.get().load(uri).into(propic)
+                imageUri = uri
+                }
 
             }
 
-            override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+            //Change propic
+
+            propic.setOnClickListener {
+                val intent = Intent(Intent.ACTION_PICK)
+                intent.type = "image/*"
+                startActivityForResult(intent, REQUEST_CODE)
+
             }
-        })
+
+        save_button.setOnClickListener{
+
+            if(check != 0) {
+
+                val uploadTask = storageRef.putFile(imageUri)
+                uploadTask.addOnFailureListener {
+
+                    Toast.makeText(
+                        this@ProfileInfosActivity,
+                        "Could not upload image!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                }.addOnSuccessListener {
+
+                    Toast.makeText(
+                        this@ProfileInfosActivity,
+                        "Profile picture uploaded successfully!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
 
 
-        signout_btn.setOnClickListener {
-            auth.signOut()
-            startActivity(Intent(this@ProfileInfosActivity, LoginActivity::class.java))
-            finish()
+
         }
+
+
+
+        }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE) {
+            propic.setImageURI(data?.data) // handle chosen image
+            imageUri = data?.data!!
+            check = 1
+
+
+        }
+
+
+
     }
+
 }

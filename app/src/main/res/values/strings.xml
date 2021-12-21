@@ -23,4 +23,8 @@
     <string name="gender">Gender</string>
     <string name="email">email</string>
     <string name="sign_out">Sign out</string>
+    <string name="edit_profile">Edit profile</string>
+    <string name="change_profile_picture">Change profile picture</string>
+    <string name="save_preferences">Save preferences</string>
+
 </resources>

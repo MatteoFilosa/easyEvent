@@ -40,13 +40,13 @@ class UserInfosActivity : AppCompatActivity() {
         var genderfield = findViewById<RadioButton>(R.id.female_button)
         imageField = findViewById<CircleImageView>(R.id.profile_image)
         var storageRef = FirebaseStorage.getInstance("gs://easyevent-5730d.appspot.com").getReference()
-        var auth = FirebaseAuth.getInstance()
+
 
 
         var database =
             FirebaseDatabase.getInstance("https://easyevent-5730d-default-rtdb.europe-west1.firebasedatabase.app/")
                 .getReference()
-        val uid = intent.getStringExtra("user_id").toString()
+        val uid = intent.getStringExtra("user_id").toString() //forse non conviene prenderlo dall'intent ma dall'auth
 
         imageField.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK)

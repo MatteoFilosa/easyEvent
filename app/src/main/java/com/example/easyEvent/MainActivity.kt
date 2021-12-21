@@ -12,17 +12,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val userDisplayed = findViewById<TextView>(R.id.user)
-        val logout_btn = findViewById<TextView>(R.id.logout_button)
+        val editprofile_btn = findViewById<TextView>(R.id.editprofile_button)
 
         val userId = intent.getStringExtra("user_id")
         val email = intent.getStringExtra("email_id")
         userDisplayed.text = "email :: $email"
 
-        logout_btn.setOnClickListener{
 
-            FirebaseAuth.getInstance().signOut()
+        editprofile_btn.setOnClickListener{
 
-            startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+            val intent = Intent(this@MainActivity, ProfileInfosActivity::class.java)
+            intent.flags =
+                Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
             finish()
         }
     }
