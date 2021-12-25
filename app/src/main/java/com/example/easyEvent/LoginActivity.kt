@@ -20,10 +20,15 @@ class LoginActivity : AppCompatActivity() {
         val email_field = findViewById<TextView>(R.id.username_form_edit_text)
         val psw_field = findViewById<TextView>(R.id.password_form_edit_text)
         val reg_btn = findViewById<TextView>(R.id.register_button)
+        val forgot = findViewById<TextView>(R.id.forgot_password_text)
 
         reg_btn.setOnClickListener{
 
             startActivity(Intent(this, RegisterActivity::class.java))
+        }
+
+        forgot.setOnClickListener{
+            startActivity(Intent(this@LoginActivity, ForgotPasswordActivity::class.java))
         }
 
         log_btn.setOnClickListener {
