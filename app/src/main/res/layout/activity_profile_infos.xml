@@ -36,7 +36,7 @@
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="24dp"
         android:text="@string/name"
         android:textAlignment="center"
         android:textSize="18sp"
@@ -87,16 +87,26 @@
         app:layout_constraintTop_toBottomOf="@id/age" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/my_events_button"
+        android:layout_width="240dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="52dp"
+        android:text="@string/my_events"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/email" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/save_button"
         android:layout_width="240dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="96dp"
+        android:layout_marginTop="12dp"
         android:text="@string/save_preferences"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/my_events_button" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

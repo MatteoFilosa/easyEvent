@@ -27,5 +27,6 @@
     <string name="change_profile_picture">Change profile picture</string>
     <string name="save_preferences">Save preferences</string>
     <string name="reset_psw">Please enter a valid email address.\n We\'ll provide you a link to reset your password.</string>
+    <string name="my_events">My events</string>
 
 </resources>

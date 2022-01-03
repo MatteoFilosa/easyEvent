@@ -46,6 +46,7 @@ class ProfileInfosActivity : AppCompatActivity() {
         val surnameText = findViewById<TextView>(R.id.surname)
         val ageText = findViewById<TextView>(R.id.age)
         val save_button = findViewById<TextView>(R.id.save_button)
+        val my_events_button = findViewById<TextView>(R.id.my_events_button)
         propic = findViewById<CircleImageView>(R.id.profile_image)
 
         imageUri = Uri.parse("android.resource://com.example.easyEvent/drawable/default_propic")
@@ -116,6 +117,15 @@ class ProfileInfosActivity : AppCompatActivity() {
 
 
 
+        }
+
+        my_events_button.setOnClickListener{
+
+            val intent = Intent(this@ProfileInfosActivity, MyEventsActivity::class.java)
+            intent.flags =
+                Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            finish()
         }
 
 
