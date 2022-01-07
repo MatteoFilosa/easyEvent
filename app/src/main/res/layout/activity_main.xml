@@ -6,7 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <androidx.compose.ui.platform.ComposeView
+        android:id="@+id/main_compose_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+
+<TextView
         android:id="@+id/Welcome_Back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -42,4 +48,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user"
         app:layout_constraintVertical_bias="0.093" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
