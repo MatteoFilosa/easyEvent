@@ -28,5 +28,7 @@
     <string name="save_preferences">Save preferences</string>
     <string name="reset_psw">Please enter a valid email address.\n We\'ll provide you a link to reset your password.</string>
     <string name="my_events">My events</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="map_test">Map test</string>
 
 </resources>

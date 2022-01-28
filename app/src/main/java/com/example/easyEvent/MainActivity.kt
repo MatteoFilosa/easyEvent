@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
 
         val userDisplayed = findViewById<TextView>(R.id.user)
         val editprofile_btn = findViewById<TextView>(R.id.editprofile_button)
+        val maps_btn = findViewById<TextView>(R.id.maptest_button)
 
         val userId = intent.getStringExtra("user_id")
         val email = intent.getStringExtra("email_id")
@@ -22,6 +23,15 @@ class MainActivity : AppCompatActivity() {
         editprofile_btn.setOnClickListener{
 
             val intent = Intent(this@MainActivity, ProfileInfosActivity::class.java)
+            intent.flags =
+                Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            finish()
+        }
+
+        maps_btn.setOnClickListener{
+
+            val intent = Intent(this@MainActivity, MapsActivity::class.java)
             intent.flags =
                 Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)

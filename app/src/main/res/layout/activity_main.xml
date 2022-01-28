@@ -42,4 +42,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user"
         app:layout_constraintVertical_bias="0.093" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/maptest_button"
+        android:layout_width="240dp"
+        android:layout_height="50dp"
+        android:text="@string/map_test"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editprofile_button"
+        app:layout_constraintVertical_bias="0.093" />
 </androidx.constraintlayout.widget.ConstraintLayout>
