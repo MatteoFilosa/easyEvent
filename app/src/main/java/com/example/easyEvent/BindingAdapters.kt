@@ -2,14 +2,13 @@ package com.example.easyEvent
 
 import android.view.View
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.easyEvent.network.Event
-import com.example.easyEvent.overview.ApiStatus
-import com.example.easyEvent.overview.EventListAdapter
+import com.example.easyEvent.ui.ApiStatus
+import com.example.easyEvent.ui.EventListAdapter
 
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {

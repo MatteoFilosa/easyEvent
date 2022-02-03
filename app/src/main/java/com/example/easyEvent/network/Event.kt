@@ -9,5 +9,7 @@ data class Event(
     val description: String,
     @Json(name = "image") val imageUrl: String,
     val date: String,
-    val location: String
+    val location: String,
+    val location_lat: Float,
+    val location_lon: Float
 )

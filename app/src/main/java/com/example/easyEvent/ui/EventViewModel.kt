@@ -1,4 +1,4 @@
-package com.example.easyEvent.overview
+package com.example.easyEvent.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 
 enum class ApiStatus { LOADING, ERROR, DONE }
 
-class OverviewViewModel : ViewModel() {
+class EventViewModel : ViewModel() {
 
     // The internal MutableLiveData that stores the status of the most recent request
     private val _status = MutableLiveData<ApiStatus>()
@@ -37,5 +37,9 @@ class OverviewViewModel : ViewModel() {
                 _events.value = listOf()
             }
         }
+    }
+
+    fun onEventClicked(event: Event) {
+        // TODO: Set the event object
     }
 }

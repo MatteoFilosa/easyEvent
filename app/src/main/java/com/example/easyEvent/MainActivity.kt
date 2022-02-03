@@ -4,9 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
-import com.example.easyEvent.overview.OverviewActivity
-import com.example.easyEvent.overview.OverviewFragment
-import com.google.firebase.auth.FirebaseAuth
+import com.example.easyEvent.ui.EventListActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         viewevents_btn.setOnClickListener {
-            val intent = Intent(this@MainActivity, OverviewActivity::class.java)
+            val intent = Intent(this@MainActivity, EventListActivity::class.java)
             intent.flags =
                 Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)

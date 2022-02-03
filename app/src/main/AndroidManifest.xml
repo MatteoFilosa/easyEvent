@@ -60,7 +60,7 @@
             android:name=".MainActivity"
             android:exported="true" />
         <activity
-            android:name=".overview.OverviewActivity"
+            android:name=".ui.EventListActivity"
             android:exported="false" />
 
         <meta-data
