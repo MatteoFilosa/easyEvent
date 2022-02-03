@@ -2,8 +2,8 @@
   <library name="Gradle: androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.0@aar">
     <CLASSES>
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/6fd7345c23411bb3e61e09af76a87f5c/transformed/jetified-lifecycle-viewmodel-savedstate-2.3.0/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/dbf5d3a6a9dfa089f3086c79538df568/transformed/jetified-lifecycle-viewmodel-savedstate-2.3.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/dbf5d3a6a9dfa089f3086c79538df568/transformed/jetified-lifecycle-viewmodel-savedstate-2.3.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/dbf5d3a6a9dfa089f3086c79538df568/transformed/jetified-lifecycle-viewmodel-savedstate-2.3.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/dbf5d3a6a9dfa089f3086c79538df568/transformed/jetified-lifecycle-viewmodel-savedstate-2.3.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
