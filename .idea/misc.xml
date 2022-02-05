@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/final_easyevent/easyEvent/app/src/main/res/font/lato_bold.xml" value="0.284375" />
+        <entry key="..\:/final_easyevent/easyEvent/app/src/main/res/layout/activity_login.xml" value="0.2418478260869565" />
+        <entry key="..\:/final_easyevent/easyEvent/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/final_easyevent/easyEvent/app/src/main/res/layout/activity_splash.xml" value="0.25416666666666665" />
+        <entry key="..\:/final_easyevent/easyEvent/app/src/main/res/layout/list_image.xml" value="0.25416666666666665" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+</project>
