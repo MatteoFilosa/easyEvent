@@ -14,7 +14,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- TODO: set the text to the name from the single Event object in the view model-->
         <TextView
             android:id="@+id/detail_title"
             android:layout_width="match_parent"
@@ -23,6 +22,7 @@
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:text="@{viewModel.event.title}"
             tools:text="Event Title" />
         
         <View

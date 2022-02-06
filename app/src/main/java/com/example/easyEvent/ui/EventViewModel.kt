@@ -15,16 +15,18 @@ class EventViewModel : ViewModel() {
     // The internal MutableLiveData that stores the status of the most recent request
     private val _status = MutableLiveData<ApiStatus>()
     private val _events = MutableLiveData<List<Event>>()
+    private val _event = MutableLiveData<Event>()
 
     // The external immutable LiveData for the request status
     val status: LiveData<ApiStatus> = _status
     val events: LiveData<List<Event>> = _events
+    val event: LiveData<Event> = _event
 
     init {
         getEvents()
     }
 
-    private fun getEvents() {
+    fun getEvents() {
         viewModelScope.launch {
             _status.value = ApiStatus.LOADING
             try {
@@ -40,6 +42,6 @@ class EventViewModel : ViewModel() {
     }
 
     fun onEventClicked(event: Event) {
-        // TODO: Set the event object
+        _event.value = event
     }
 }

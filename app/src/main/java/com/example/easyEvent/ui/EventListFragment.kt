@@ -20,7 +20,9 @@ class EventListFragment : Fragment() {
     ): View? {
 
         val binding = FragmentEventListBinding.inflate(inflater)
-        // TODO: call the view model method that calls the event api
+
+        viewModel.getEvents()
+
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
         binding.recyclerView.adapter = EventListAdapter(EventListener { event ->
