@@ -15,7 +15,7 @@
         <!-- Text input fields -->
         <item name="textInputStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox</item>
         <!-- Font family -->
-        <item name="fontFamily">@font/source_sans_pro</item>
+
     </style>
 
 

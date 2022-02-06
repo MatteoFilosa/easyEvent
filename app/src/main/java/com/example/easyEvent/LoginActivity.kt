@@ -6,15 +6,29 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.TextView
 import android.widget.Toast
+import com.example.easyEvent.ui.Adapters
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        lateinit var adapters: Adapters
+
+        var list = mutableListOf<Int>()
+
+        list.add(R.drawable.one)
+        list.add(R.drawable.two)
+        list.add(R.drawable.three)
+
+        adapters=Adapters(this)
+        adapters.setContentList(list)
+        viewpager.adapter=adapters
 
         val log_btn = findViewById<TextView>(R.id.login_button)
         val email_field = findViewById<TextView>(R.id.username_form_edit_text)
