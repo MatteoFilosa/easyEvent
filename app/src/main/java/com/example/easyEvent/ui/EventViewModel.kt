@@ -23,10 +23,10 @@ class EventViewModel : ViewModel() {
     val event: LiveData<Event> = _event
 
     init {
-        getEvents()
+        getEventList()
     }
 
-    fun getEvents() {
+    fun getEventList() {
         viewModelScope.launch {
             _status.value = ApiStatus.LOADING
             try {

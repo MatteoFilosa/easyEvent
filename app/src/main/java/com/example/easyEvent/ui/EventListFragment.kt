@@ -21,7 +21,7 @@ class EventListFragment : Fragment() {
 
         val binding = FragmentEventListBinding.inflate(inflater)
 
-        viewModel.getEvents()
+        viewModel.getEventList()
 
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
