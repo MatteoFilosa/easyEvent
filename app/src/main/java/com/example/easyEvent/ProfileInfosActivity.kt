@@ -55,18 +55,18 @@ class ProfileInfosActivity : AppCompatActivity() {
         val user = auth.currentUser
 
 
-        emailText.text = "Email  -- > " + user?.email
+        emailText.text = "Email: " + user?.email
 
         uidRef.get().addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 val snapshot = task.result
                 nameText.text =
-                    "Firstname - - > " +  snapshot!!.child("name").getValue(String::class.java)
+                    "Firstname: " +  snapshot!!.child("name").getValue(String::class.java)
                 surnameText.text =
-                    "Surname - - > " +  snapshot.child("surname").getValue(String::class.java)
+                    "Surname: " +  snapshot.child("surname").getValue(String::class.java)
 
                 ageText.text =
-                    "Age- - > " + snapshot.child("age").getValue(Int::class.java)
+                    "Age: " + snapshot.child("age").getValue(Int::class.java)
 
 
 

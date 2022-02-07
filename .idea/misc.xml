@@ -10,8 +10,12 @@
         <entry key="..\:/final_easyevent/easyEvent/app/src/main/res/font/lato_bold.xml" value="0.284375" />
         <entry key="..\:/final_easyevent/easyEvent/app/src/main/res/layout/activity_login.xml" value="0.2418478260869565" />
         <entry key="..\:/final_easyevent/easyEvent/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/final_easyevent/easyEvent/app/src/main/res/layout/activity_maps.xml" value="0.16614583333333333" />
+        <entry key="..\:/final_easyevent/easyEvent/app/src/main/res/layout/activity_profile_infos.xml" value="0.10536980749746708" />
         <entry key="..\:/final_easyevent/easyEvent/app/src/main/res/layout/activity_splash.xml" value="0.25416666666666665" />
+        <entry key="..\:/final_easyevent/easyEvent/app/src/main/res/layout/activity_user_infos.xml" value="0.16614583333333333" />
         <entry key="..\:/final_easyevent/easyEvent/app/src/main/res/layout/list_image.xml" value="0.25416666666666665" />
+        <entry key="..\:/final_easyevent/easyEvent/app/src/main/res/layout/searchview_background.xml" value="0.1734375" />
       </map>
     </option>
   </component>

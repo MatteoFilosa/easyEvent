@@ -10,12 +10,27 @@
         android:id="@+id/Welcome_Back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="348dp"
-        android:text="Welcome back"
+        android:layout_marginTop="100dp"
+        android:fontFamily="cursive"
+        android:text="Welcome back,"
         android:textAlignment="center"
         android:textSize="34sp"
+        app:fontFamily="cursive"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="212dp"
+        android:src="@drawable/default_propic"
+        android:text="@string/select_profile_picture"
+        app:civ_border_color="#FF000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,9 +42,10 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Welcome_Back"
-        app:layout_constraintVertical_bias="0.07" />
+        app:layout_constraintVertical_bias="0.028" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/editprofile_button"
@@ -41,7 +57,7 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user"
-        app:layout_constraintVertical_bias="0.093" />
+        app:layout_constraintVertical_bias="0.742" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/view_events"
@@ -53,7 +69,31 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editprofile_button"
-        app:layout_constraintVertical_bias="0.093" />
+        app:layout_constraintVertical_bias="0.303" />
+
+    <SearchView
+        android:id="@+id/searchE"
+        android:layout_width="217dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:queryHint="Enter a city..."
+        android:background="#d4fadf"
+        android:radius="12dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Search for events by city!"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_image" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

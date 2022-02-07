@@ -1,16 +1,15 @@
 package com.example.easyEvent
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.easyEvent.ui.Adapters
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -22,9 +21,9 @@ class LoginActivity : AppCompatActivity() {
 
         var list = mutableListOf<Int>()
 
-        list.add(R.drawable.one)
-        list.add(R.drawable.two)
-        list.add(R.drawable.three)
+        list.add(R.drawable.one1)
+        list.add(R.drawable.two2)
+        list.add(R.drawable.three3)
 
         adapters=Adapters(this)
         adapters.setContentList(list)
@@ -35,6 +34,8 @@ class LoginActivity : AppCompatActivity() {
         val psw_field = findViewById<TextView>(R.id.password_form_edit_text)
         val reg_btn = findViewById<TextView>(R.id.register_button)
         val forgot = findViewById<TextView>(R.id.forgot_password_text)
+
+
 
         reg_btn.setOnClickListener{
 
