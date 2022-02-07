@@ -1,5 +1,6 @@
 package com.example.easyEvent.ui
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -30,13 +31,14 @@ class EventViewModel : ViewModel() {
         viewModelScope.launch {
             _status.value = ApiStatus.LOADING
             try {
-                val listResult = Api.retrofitService.getAllEvents()
+                // val listResult = Api.retrofitService.getAllEvents()
                 _events.value = Api.retrofitService.getAllEvents()
                 _status.value = ApiStatus.DONE
             }
             catch (e: Exception) {
-                _status.value = ApiStatus.ERROR
+                Log.d("EventViewModel", "getEventList: Error $e")
                 _events.value = listOf()
+                _status.value = ApiStatus.ERROR
             }
         }
     }
