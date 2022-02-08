@@ -83,12 +83,11 @@ class LoginActivity : AppCompatActivity() {
 
                                     val intent =
                                         Intent(this@LoginActivity, MainActivity::class.java)
-                                    intent.flags =
-                                        Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
                                     intent.putExtra("user_id", FirebaseAuth.getInstance().currentUser!!.uid)
                                     intent.putExtra("email_id", email)
                                     startActivity(intent)
-                                    finish()
+
                                 } else {
                                     //If logging in is not successful, then show error message.
                                     Toast.makeText(

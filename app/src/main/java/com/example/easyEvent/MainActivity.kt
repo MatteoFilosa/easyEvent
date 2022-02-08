@@ -64,13 +64,20 @@ class MainActivity : AppCompatActivity() {
         }
 
         viewevents_btn.setOnClickListener {
-            startActivity(Intent(this, EventListActivity::class.java))
+            startActivity(Intent(this, MapsActivity::class.java))
         }
 
         searchEvent.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
 
+
             override fun onQueryTextSubmit(query: String?): Boolean{
+                val city = searchEvent.query
                 searchEvent.clearFocus()
+                val intent =
+                    Intent(this@MainActivity, GetEventsActivity::class.java)
+                intent.putExtra("city", city)
+                startActivity(intent)
+
                 return false
             }
 
