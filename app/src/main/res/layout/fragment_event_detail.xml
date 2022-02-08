@@ -38,15 +38,48 @@
             tools:text="Event Title" />
         
         <TextView
+            android:id="@+id/detail_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_title"
+            android:text="@{viewModel.event.location}"
+            tools:text="Event Location" />
+
+        <TextView
+            android:id="@+id/detail_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_location"
+            android:text="@{viewModel.event.date}"
+            tools:text="Event Date" />
+
+        <TextView
+            android:id="@+id/detail_about"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="About this event"
+            android:layout_margin="8dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_date"/>
+
+        <TextView
             android:id="@+id/detail_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
             android:text="@{viewModel.event.description}"
-            android:switchTextAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detail_title"
+            app:layout_constraintTop_toBottomOf="@+id/detail_about"
             tools:text="Event Description" />
 
             <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton

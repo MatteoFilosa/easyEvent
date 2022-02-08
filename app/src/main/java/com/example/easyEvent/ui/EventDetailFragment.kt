@@ -1,6 +1,7 @@
 package com.example.easyEvent.ui
 
 import android.R
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,9 +9,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.example.easyEvent.MapsActivity
 import com.example.easyEvent.databinding.FragmentEventDetailBinding
-import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class EventDetailFragment : Fragment() {
@@ -27,9 +27,15 @@ class EventDetailFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
-        val fab: ExtendedFloatingActionButton = binding.fabViewMap
-        fab.setOnClickListener {
-            Toast.makeText(this.context, "Viewing on map...", Toast.LENGTH_SHORT)
+        binding.fabViewMap.setOnClickListener {
+            val latitude: Float = viewModel.event.value?.location_lat!!.toFloat()
+            val longitude: Float = viewModel.event.value?.location_lon!!.toFloat()
+            requireActivity().run{
+                val intent: Intent =  Intent(this, MapsActivity::class.java)
+                // TODO: add latitude and longitude through intent.putExtra(...)
+                startActivity(intent)
+                finish()
+            }
         }
 
         return binding.root
