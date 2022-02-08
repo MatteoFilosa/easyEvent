@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         viewevents_btn.setOnClickListener {
-            startActivity(Intent(this, MapsActivity::class.java))
+            startActivity(Intent(this, EventListActivity::class.java))
         }
 
         searchEvent.setOnQueryTextListener(object : SearchView.OnQueryTextListener{

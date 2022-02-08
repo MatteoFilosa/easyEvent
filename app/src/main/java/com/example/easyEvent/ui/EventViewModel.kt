@@ -43,6 +43,28 @@ class EventViewModel : ViewModel() {
         }
     }
 
+    fun getEventsByLocation(location: String) {
+        viewModelScope.launch {
+            _status.value = ApiStatus.LOADING
+            try {
+                val entireList = Api.retrofitService.getAllEvents()
+                var queryList: List<Event> = listOf<Event>()
+                entireList.forEach() { event ->
+                    if (event.location.equals(location))
+                        queryList.toMutableList().add(event)
+                }
+
+                _events.value = queryList
+                _status.value = ApiStatus.DONE
+
+            } catch (e: Exception) {
+                Log.d("EventViewModel", "getEventList: Error $e")
+                _events.value = listOf()
+                _status.value = ApiStatus.ERROR
+            }
+        }
+    }
+
     fun onEventClicked(event: Event) {
         _event.value = event
     }

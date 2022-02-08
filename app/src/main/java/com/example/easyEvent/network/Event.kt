@@ -10,7 +10,6 @@ data class Event(
     @Json(name = "image") val imageUrl: String,
     val date: String,
     val location: String,
-    // TODO: fetch latitude and longitude as Float instead of String
-    /* val location_lat: Float,
-    val location_lon: Float */
+    val location_lat: String,
+    val location_lon: String
 )
