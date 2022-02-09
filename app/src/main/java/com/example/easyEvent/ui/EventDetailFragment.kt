@@ -32,7 +32,8 @@ class EventDetailFragment : Fragment() {
             val longitude: Float = viewModel.event.value?.location_lon!!.toFloat()
             requireActivity().run{
                 val intent: Intent =  Intent(this, MapsActivity::class.java)
-                // TODO: add latitude and longitude through intent.putExtra(...)
+                intent.putExtra("latitude", latitude)
+                intent.putExtra("longitude", longitude)
                 startActivity(intent)
                 finish()
             }

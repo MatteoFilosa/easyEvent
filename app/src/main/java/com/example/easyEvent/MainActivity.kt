@@ -35,7 +35,6 @@ class MainActivity : AppCompatActivity() {
 
         //New part
 
-
         var storageRef = FirebaseStorage.getInstance("gs://easyevent-5730d.appspot.com").reference.child("images/$uid")
 
         propic = findViewById<CircleImageView>(R.id.profile_image)
