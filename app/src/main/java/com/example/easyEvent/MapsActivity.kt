@@ -35,6 +35,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
@@ -74,9 +77,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             fusedLocationClient.lastLocation.addOnSuccessListener(this){ location ->
 
                 if (location != null){
+                    val eventLat:Double = intent.getStringExtra("latitude")!!.toDouble()
+                    val eventLong:Double = intent.getStringExtra("longitude")!!.toDouble()
                     lastLocation = location
                     val currentLatLong = LatLng(location.latitude, location.longitude)
                     placeMarkerOnMap(currentLatLong)
+                    val eventLatLong = LatLng(eventLat, eventLong)
+
+                    placeMarkerOnMap(eventLatLong)
                     mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLong, 12f))
 
                 }

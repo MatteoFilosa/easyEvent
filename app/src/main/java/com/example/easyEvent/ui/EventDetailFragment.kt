@@ -28,8 +28,8 @@ class EventDetailFragment : Fragment() {
         binding.viewModel = viewModel
 
         binding.fabViewMap.setOnClickListener {
-            val latitude: Float = viewModel.event.value?.location_lat!!.toFloat()
-            val longitude: Float = viewModel.event.value?.location_lon!!.toFloat()
+            val latitude: String = viewModel.event.value?.location_lat!!
+            val longitude: String = viewModel.event.value?.location_lon!!
             requireActivity().run{
                 val intent: Intent =  Intent(this, MapsActivity::class.java)
                 intent.putExtra("latitude", latitude)
