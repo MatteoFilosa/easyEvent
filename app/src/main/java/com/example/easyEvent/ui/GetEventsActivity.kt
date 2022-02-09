@@ -10,7 +10,9 @@ class GetEventsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_event_list)
+        setContentView(R.layout.activity_get_events)
+
+        val city: String = intent.getStringExtra("city")!!
 
         GetEventsFragment.newInstance()
     }

@@ -20,7 +20,7 @@ class GetEventsFragment: Fragment() {
     ): View? {
         val binding = FragmentEventListBinding.inflate(inflater)
 
-        viewModel.getEventList("Rome")
+        viewModel.getEventList("rome")
 
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
