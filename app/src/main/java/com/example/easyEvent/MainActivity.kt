@@ -8,6 +8,7 @@ import android.util.Log
 import android.widget.SearchView
 import android.widget.TextView
 import com.example.easyEvent.ui.EventListActivity
+import com.example.easyEvent.ui.GetEventsActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage

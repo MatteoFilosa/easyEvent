@@ -9,7 +9,6 @@ import com.example.easyEvent.R
 class EventListActivity : AppCompatActivity() {
 
     private val viewModel: EventViewModel by viewModels()
-    lateinit var forwardButtonView: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

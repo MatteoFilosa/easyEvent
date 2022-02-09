@@ -10,7 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.easyEvent.R
 import com.example.easyEvent.databinding.FragmentEventListBinding
 
-class EventListFragment : Fragment() {
+class GetEventsFragment: Fragment() {
 
     private val viewModel: EventViewModel by activityViewModels()
 
@@ -18,10 +18,9 @@ class EventListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         val binding = FragmentEventListBinding.inflate(inflater)
 
-        viewModel.getEventList("")
+        viewModel.getEventList("Rome")
 
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
@@ -35,8 +34,7 @@ class EventListFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance() = EventListFragment
+        fun newInstance() = GetEventsFragment
     }
-
 
 }

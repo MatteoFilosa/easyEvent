@@ -14,73 +14,90 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/detail_image"
-            android:layout_width="match_parent"
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="0dp"
             android:layout_height="0dp"
-            android:scaleType="centerCrop"
-            app:layout_constraintDimensionRatio="H,16:10"
-            app:imageUrl="@{viewModel.event.imageUrl}"
+            android:fillViewport="true"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:src="@tools:sample/backgrounds/scenic"
-            tools:ignore="ContentDescription" />
+            app:layout_constraintEnd_toEndOf="parent">
 
-        <TextView
-            android:id="@+id/detail_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/detail_image"
-            android:text="@{viewModel.event.title}"
-            tools:text="Event Title" />
-        
-        <TextView
-            android:id="@+id/detail_location"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detail_title"
-            android:text="@{viewModel.event.location}"
-            tools:text="Event Location" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/detail_date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detail_location"
-            android:text="@{viewModel.event.date}"
-            tools:text="Event Date" />
+                <ImageView
+                    android:id="@+id/detail_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintDimensionRatio="H,16:10"
+                    app:imageUrl="@{viewModel.event.imageUrl}"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:src="@tools:sample/backgrounds/scenic"
+                    tools:ignore="ContentDescription" />
 
-        <TextView
-            android:id="@+id/detail_about"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="About this event"
-            android:layout_margin="8dp"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detail_date"/>
+                <TextView
+                    android:id="@+id/detail_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/detail_image"
+                    android:text="@{viewModel.event.title}"
+                    tools:text="Event Title" />
 
-        <TextView
-            android:id="@+id/detail_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="@{viewModel.event.description}"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detail_about"
-            tools:text="Event Description" />
+                <TextView
+                    android:id="@+id/detail_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_title"
+                    android:text="@{viewModel.event.location}"
+                    tools:text="Event Location" />
+
+                <TextView
+                    android:id="@+id/detail_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_location"
+                    android:text="@{viewModel.event.date}"
+                    tools:text="Event Date" />
+
+                <TextView
+                    android:id="@+id/detail_about"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="About this event"
+                    android:layout_margin="8dp"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_date"/>
+
+                <TextView
+                    android:id="@+id/detail_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="30dp"
+                    android:text="@{viewModel.event.description}"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_about"
+                    tools:text="Event Description" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
 
             <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
                 android:id="@+id/fab_view_map"

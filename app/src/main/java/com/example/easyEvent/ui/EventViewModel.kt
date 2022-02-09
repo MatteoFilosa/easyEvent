@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.easyEvent.network.Api
 import com.example.easyEvent.network.Event
 import kotlinx.coroutines.launch
+import java.util.*
 
 enum class ApiStatus { LOADING, ERROR, DONE }
 
@@ -24,34 +25,52 @@ class EventViewModel : ViewModel() {
     val event: LiveData<Event> = _event
 
     init {
-        getEventList()
+        getEventList("")
     }
 
-    fun getEventList() {
-        viewModelScope.launch {
-            _status.value = ApiStatus.LOADING
-            try {
-                // val listResult = Api.retrofitService.getAllEvents()
-                _events.value = Api.retrofitService.getAllEvents()
-                _status.value = ApiStatus.DONE
+    fun getEventList(location: String) {
+        if (location.isEmpty()) {
+            viewModelScope.launch {
+                _status.value = ApiStatus.LOADING
+                try {
+                    // val listResult = Api.retrofitService.getAllEvents()
+                    _events.value = Api.retrofitService.getAllEvents()
+                    _status.value = ApiStatus.DONE
+                } catch (e: Exception) {
+                    Log.d("EventViewModel", "getEventList: Error $e")
+                    _events.value = listOf()
+                    _status.value = ApiStatus.ERROR
+                }
             }
-            catch (e: Exception) {
-                Log.d("EventViewModel", "getEventList: Error $e")
-                _events.value = listOf()
-                _status.value = ApiStatus.ERROR
+        } else {
+            viewModelScope.launch {
+                _status.value = ApiStatus.LOADING
+                try {
+                    val listResult = Api.retrofitService.getAllEvents()
+
+                    val filterList = listResult.filter {
+                        it.location.lowercase(Locale.ROOT).startsWith(location)
+                    }
+                    _events.value = filterList
+                    _status.value = ApiStatus.DONE
+                } catch (e: Exception) {
+                    Log.d("EventViewModel", "getEventList: Error $e")
+                    _events.value = listOf()
+                    _status.value = ApiStatus.ERROR
+                }
             }
         }
     }
 
-    fun getEventsByLocation(location: String) {
+    /* fun searchEventsByLocation(location: String) {
         viewModelScope.launch {
             _status.value = ApiStatus.LOADING
             try {
                 val entireList = Api.retrofitService.getAllEvents()
-                var queryList: List<Event> = listOf<Event>()
+                var queryList: MutableList<Event> = mutableListOf()
                 entireList.forEach() { event ->
                     if (event.location.equals(location))
-                        queryList.toMutableList().add(event)
+                        queryList.add(event)
                 }
 
                 _events.value = queryList
@@ -63,7 +82,7 @@ class EventViewModel : ViewModel() {
                 _status.value = ApiStatus.ERROR
             }
         }
-    }
+    } */
 
     fun onEventClicked(event: Event) {
         _event.value = event
