@@ -79,21 +79,22 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                 if (location != null){
                     val eventLat:Double = intent.getStringExtra("latitude")!!.toDouble()
                     val eventLong:Double = intent.getStringExtra("longitude")!!.toDouble()
+                    val eventTitle: String = intent.getStringExtra("title")!!
                     lastLocation = location
                     val currentLatLong = LatLng(location.latitude, location.longitude)
-                    placeMarkerOnMap(currentLatLong)
+                    // placeMarkerOnMap(currentLatLong)
                     val eventLatLong = LatLng(eventLat, eventLong)
 
-                    placeMarkerOnMap(eventLatLong)
+                    placeMarkerOnMap(eventLatLong, eventTitle)
                     mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLong, 12f))
 
                 }
         }
     }
 
-    private fun placeMarkerOnMap(currentLatLong: LatLng) {
+    private fun placeMarkerOnMap(currentLatLong: LatLng, title: String) {
         val markerOptions = MarkerOptions().position(currentLatLong)
-        markerOptions.title("$currentLatLong")
+        markerOptions.title(title)
         mMap.addMarker(markerOptions)
     }
 

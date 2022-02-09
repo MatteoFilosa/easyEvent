@@ -24,10 +24,6 @@ class EventViewModel : ViewModel() {
     val events: LiveData<List<Event>> = _events
     val event: LiveData<Event> = _event
 
-    init {
-        getEventList("")
-    }
-
     fun getEventList(location: String) {
         if (location.isEmpty()) {
             viewModelScope.launch {

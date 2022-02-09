@@ -30,10 +30,12 @@ class EventDetailFragment : Fragment() {
         binding.fabViewMap.setOnClickListener {
             val latitude: String = viewModel.event.value?.location_lat!!
             val longitude: String = viewModel.event.value?.location_lon!!
+            val title: String  = viewModel.event.value?.title!!
             requireActivity().run{
                 val intent: Intent =  Intent(this, MapsActivity::class.java)
                 intent.putExtra("latitude", latitude)
                 intent.putExtra("longitude", longitude)
+                intent.putExtra("title", title)
                 startActivity(intent)
                 finish()
             }
