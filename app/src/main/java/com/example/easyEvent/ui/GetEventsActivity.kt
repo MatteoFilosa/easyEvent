@@ -1,18 +1,32 @@
-package com.example.easyEvent.ui
+package com.example.easyEvent
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.viewModels
-import com.example.easyEvent.R
-import com.example.easyEvent.ui.EventListFragment.Companion.newInstance
+import android.util.Log
+import android.widget.TextView
 
 class GetEventsActivity : AppCompatActivity() {
-    private val viewModel: EventViewModel by viewModels()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_event_list)
 
-        GetEventsFragment.newInstance()
+        /* not working
+        val location = findViewById<TextView>(R.id.detail_location).toString()
+        val mapsBtn = findViewById<TextView>(R.id.fab_view_map)
+        Log.d("ECCOLO" ,location)
+
+        mapsBtn.setOnClickListener() {
+
+            val intent =
+                Intent(this@GetEventsActivity, MapsActivity::class.java)
+            intent.putExtra("location", location)
+            startActivity(intent)
+
+
+
+        }*/
     }
-}
+
+
+    }

@@ -15,6 +15,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import de.hdodenhof.circleimageview.CircleImageView
+import java.lang.Thread.sleep
 import java.net.URI
 import java.util.*
 
@@ -109,6 +110,13 @@ class UserInfosActivity : AppCompatActivity() {
 
                     val imagesRef = storageRef.child("images/$uid")
                     val uploadTask = imagesRef.putFile(imageUri)
+                    sleep(2000) //serve per dare tempo di caricare la foto senno nell intent dopo non la fa vede
+
+                    Toast.makeText(
+                        this@UserInfosActivity,
+                        "Uploading profile picture...",
+                        Toast.LENGTH_SHORT
+                    ).show()
 
                     uploadTask.addOnFailureListener {
 
