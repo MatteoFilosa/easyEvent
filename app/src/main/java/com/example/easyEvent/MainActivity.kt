@@ -27,6 +27,22 @@ class MainActivity : AppCompatActivity() {
     val uid = FirebaseAuth.getInstance().currentUser!!.uid
     val uidRef = database.child("users").child(uid)
 
+    override fun onStart() {
+        super.onStart()
+        var storageRef =
+            FirebaseStorage.getInstance("gs://easyevent-5730d.appspot.com").reference.child("images/$uid")
+
+        propic = findViewById<CircleImageView>(R.id.profile_image)
+
+        imageUri = Uri.parse("android.resource://com.example.easyEvent/drawable/default_propic")
+
+        storageRef.downloadUrl.addOnSuccessListener { uri ->
+            Picasso.get().load(uri).into(propic)
+            imageUri = uri
+        }
+
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -38,12 +54,7 @@ class MainActivity : AppCompatActivity() {
 
         //New part
 
-        var storageRef =
-            FirebaseStorage.getInstance("gs://easyevent-5730d.appspot.com").reference.child("images/$uid")
 
-        propic = findViewById<CircleImageView>(R.id.profile_image)
-
-        imageUri = Uri.parse("android.resource://com.example.easyEvent/drawable/default_propic")
 
         uidRef.get().addOnCompleteListener { task ->
             if (task.isSuccessful) {
@@ -53,10 +64,7 @@ class MainActivity : AppCompatActivity() {
                 Log.d("TAG", task.exception!!.message!!)
             }
             //Downalod original propic
-            storageRef.downloadUrl.addOnSuccessListener { uri ->
-                Picasso.get().load(uri).into(propic)
-                imageUri = uri
-            }
+
 
         }
 

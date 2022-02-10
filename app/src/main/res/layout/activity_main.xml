@@ -64,7 +64,7 @@
         android:layout_width="240dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
-        android:text="View events"
+        android:text="View all events"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
