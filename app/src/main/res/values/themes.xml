@@ -6,7 +6,7 @@
         <item name="colorPrimaryVariant">#009423</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">#00b8d4</item>
+        <item name="colorSecondary">#82f7ff</item>
         <item name="colorSecondaryVariant">#0088a3</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
@@ -15,6 +15,7 @@
         <!-- Text input fields -->
         <item name="textInputStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox</item>
         <!-- Font family -->
+        <item name="fontFamily">@font/source_sans_pro</item>
 
     </style>
 

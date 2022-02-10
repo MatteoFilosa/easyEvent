@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.core.app.ActivityCompat
 
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -36,8 +37,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         setContentView(binding.root)
 
 
-
-
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
@@ -65,30 +64,35 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         setUpMap()
     }
 
-        private fun setUpMap(){
+    private fun setUpMap() {
 
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED){
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+            != PackageManager.PERMISSION_GRANTED
+        ) {
 
-                    ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), LOCATION_REQUEST_CODE)
-                return
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
+                LOCATION_REQUEST_CODE
+            )
+            return
+        }
+        mMap.isMyLocationEnabled = true
+        fusedLocationClient.lastLocation.addOnSuccessListener(this) { location ->
+
+            if (location != null) {
+                val eventLat: Double = intent.getStringExtra("latitude")!!.toDouble()
+                val eventLong: Double = intent.getStringExtra("longitude")!!.toDouble()
+                val eventTitle: String = intent.getStringExtra("title")!!
+                lastLocation = location
+                val currentLatLong = LatLng(location.latitude, location.longitude)
+                // placeMarkerOnMap(currentLatLong)
+                val eventLatLong = LatLng(eventLat, eventLong)
+
+                placeMarkerOnMap(eventLatLong, eventTitle)
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLong, 12f))
+
             }
-            mMap.isMyLocationEnabled = true
-            fusedLocationClient.lastLocation.addOnSuccessListener(this){ location ->
-
-                if (location != null){
-                    val eventLat:Double = intent.getStringExtra("latitude")!!.toDouble()
-                    val eventLong:Double = intent.getStringExtra("longitude")!!.toDouble()
-                    val eventTitle: String = intent.getStringExtra("title")!!
-                    lastLocation = location
-                    val currentLatLong = LatLng(location.latitude, location.longitude)
-                    // placeMarkerOnMap(currentLatLong)
-                    val eventLatLong = LatLng(eventLat, eventLong)
-
-                    placeMarkerOnMap(eventLatLong, eventTitle)
-                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLong, 12f))
-
-                }
         }
     }
 
@@ -100,5 +104,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
 
     override fun onMarkerClick(p0: Marker) = false
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
+    }
 
 }

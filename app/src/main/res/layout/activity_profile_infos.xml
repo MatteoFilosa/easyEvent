@@ -86,7 +86,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/age" />
 
-    <com.google.android.material.button.MaterialButton
+    <!--com.google.android.material.button.MaterialButton
         android:id="@+id/my_events_button"
         android:layout_width="240dp"
         android:layout_height="50dp"
@@ -95,7 +95,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/email" />
+        app:layout_constraintTop_toBottomOf="@id/email" /-->
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/save_button"
@@ -106,7 +106,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/my_events_button" />
-
+        app:layout_constraintTop_toBottomOf="@id/email" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

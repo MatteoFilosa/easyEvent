@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/getEventsFragment">
+
+    <fragment
+        android:id="@+id/getEventsFragment"
+        android:name="com.example.easyEvent.ui.GetEventsFragment"
+        android:label="GetEventsFragment"
+        tools:layout="@layout/fragment_get_events" >
+        <action
+            android:id="@+id/action_getEventsFragment_to_eventDetailFragment"
+            app:destination="@id/eventDetailFragment"
+            app:enterAnim="@anim/fui_slide_in_right"
+            app:exitAnim="@anim/fui_slide_out_left"
+            app:popEnterAnim="@anim/fui_slide_in_right"
+            app:popExitAnim="@anim/fui_slide_out_left" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/eventDetailFragment"
+        android:name="com.example.easyEvent.ui.EventDetailFragment"
+        android:label="EventDetailFragment"
+        tools:layout="@layout/fragment_event_detail">
+        <action
+            android:id="@+id/action_eventDetailFragment_to_eventReservedFragment"
+            app:destination="@id/eventReservedFragment"
+            app:enterAnim="@anim/fui_slide_in_right"
+            app:exitAnim="@anim/fui_slide_out_left"
+            app:popEnterAnim="@anim/fui_slide_in_right"
+            app:popExitAnim="@anim/fui_slide_out_left" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/eventReservedFragment"
+        android:name="com.example.easyEvent.ui.EventReservedFragment"
+        android:label="EventReservedFragment"
+        tools:layout="@layout/fragment_event_reserved" />
+</navigation>

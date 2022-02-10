@@ -8,6 +8,7 @@ import android.util.Log
 import android.widget.SearchView
 import android.widget.TextView
 import com.example.easyEvent.ui.EventListActivity
+import com.example.easyEvent.ui.EventListFragment
 import com.example.easyEvent.ui.GetEventsActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -17,10 +18,12 @@ import de.hdodenhof.circleimageview.CircleImageView
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var imageUri : Uri
+    lateinit var imageUri: Uri
     lateinit var propic: CircleImageView
 
-    var database = FirebaseDatabase.getInstance("https://easyevent-5730d-default-rtdb.europe-west1.firebasedatabase.app/").getReference()
+    var database =
+        FirebaseDatabase.getInstance("https://easyevent-5730d-default-rtdb.europe-west1.firebasedatabase.app/")
+            .getReference()
     val uid = FirebaseAuth.getInstance().currentUser!!.uid
     val uidRef = database.child("users").child(uid)
 
@@ -35,13 +38,12 @@ class MainActivity : AppCompatActivity() {
 
         //New part
 
-        var storageRef = FirebaseStorage.getInstance("gs://easyevent-5730d.appspot.com").reference.child("images/$uid")
+        var storageRef =
+            FirebaseStorage.getInstance("gs://easyevent-5730d.appspot.com").reference.child("images/$uid")
 
         propic = findViewById<CircleImageView>(R.id.profile_image)
 
         imageUri = Uri.parse("android.resource://com.example.easyEvent/drawable/default_propic")
-
-
 
         uidRef.get().addOnCompleteListener { task ->
             if (task.isSuccessful) {
@@ -58,7 +60,7 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        editprofile_btn.setOnClickListener{
+        editprofile_btn.setOnClickListener {
 
             startActivity(Intent(this, ProfileInfosActivity::class.java))
         }
@@ -67,15 +69,14 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, EventListActivity::class.java))
         }
 
-        searchEvent.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+        searchEvent.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
-
-            override fun onQueryTextSubmit(query: String?): Boolean{
+            override fun onQueryTextSubmit(query: String?): Boolean {
                 val city = searchEvent.query
                 searchEvent.clearFocus()
                 val intent =
                     Intent(this@MainActivity, GetEventsActivity::class.java)
-                intent.putExtra("city", city)
+                intent.putExtra("city", city.toString())
                 startActivity(intent)
 
                 return false

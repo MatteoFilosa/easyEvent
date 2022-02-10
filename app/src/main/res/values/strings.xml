@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">EasyEvent-login</string>
+    <string name="app_name">easyEvent</string>
     <string name="welcome_to_easyevent">Welcome to\nEasyEvent!</string>
     <string name="forgot_your_password">Forgot your password?</string>
     <string name="username">Username</string>
@@ -28,5 +28,9 @@
     <string name="save_preferences">Save preferences</string>
     <string name="reset_psw">Please enter a valid email address.\n We\'ll provide you a link to reset your password.</string>
     <string name="my_events">My events</string>
+    <string name="reservation_success">A reservation to this event was successfully sent! \n You will receive a confirmation email shortly.</string>
+    <string name="event_about">About this event</string>
+    <string name="text_view_on_map">View on map</string>
+    <string name="text_reserve_event">reserve event</string>
 
 </resources>

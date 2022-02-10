@@ -63,7 +63,7 @@
         android:id="@+id/view_events"
         android:layout_width="240dp"
         android:layout_height="50dp"
-        android:text="View map"
+        android:text="View events"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
@@ -82,7 +82,8 @@
         app:layout_constraintTop_toBottomOf="@+id/textView"
         android:queryHint="Enter a city..."
         android:background="#d4fadf"
-        android:radius="12dp" />
+        android:radius="12dp"
+        android:elevation="4dp"/>
 
     <TextView
         android:id="@+id/textView"

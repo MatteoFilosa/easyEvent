@@ -18,13 +18,14 @@ class EventListAdapter(val clickListener: EventListener) : ListAdapter<Event,
 
     class EventViewHolder(
         var binding: RecyclerViewItemBinding
-        ): RecyclerView.ViewHolder(binding.root){
+    ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(clickListener: EventListener, event: Event) {
             binding.event = event
             binding.clickListener = clickListener
             binding.executePendingBindings()
         }
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return EventViewHolder(

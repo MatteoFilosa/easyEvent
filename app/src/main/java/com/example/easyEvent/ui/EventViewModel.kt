@@ -45,7 +45,8 @@ class EventViewModel : ViewModel() {
                     val listResult = Api.retrofitService.getAllEvents()
 
                     val filterList = listResult.filter {
-                        it.location.lowercase(Locale.ROOT).startsWith(location)
+                        it.location.lowercase(Locale.ROOT)
+                            .startsWith(location.lowercase(Locale.ROOT))
                     }
                     _events.value = filterList
                     _status.value = ApiStatus.DONE

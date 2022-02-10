@@ -11,8 +11,6 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import android.widget.Toast
-import com.firebase.ui.auth.data.model.User
-import com.google.firebase.database.FirebaseDatabase
 
 
 class RegisterActivity : AppCompatActivity() {
@@ -21,27 +19,27 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        val reg_btn = findViewById<TextView>(R.id.register_button)
-        val email_field = findViewById<TextView>(R.id.username_form_edit_text)
-        val psw_field = findViewById<TextView>(R.id.password_form_edit_text)
-        val psw_field_confirm = findViewById<TextView>(R.id.password_form_edit_text_confirm)
-        reg_btn.setOnClickListener {
+        val regBtn = findViewById<TextView>(R.id.register_button)
+        val emailField = findViewById<TextView>(R.id.username_form_edit_text)
+        val pswField = findViewById<TextView>(R.id.password_form_edit_text)
+        val pswFieldConfirm = findViewById<TextView>(R.id.password_form_edit_text_confirm)
+        regBtn.setOnClickListener {
             when {
-                TextUtils.isEmpty(email_field.text.toString().trim { it <= ' ' }) -> {
+                TextUtils.isEmpty(emailField.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
                         this@RegisterActivity,
                         "Please enter email.",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-                TextUtils.isEmpty(psw_field.text.toString().trim { it <= ' ' }) -> {
+                TextUtils.isEmpty(pswField.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
                         this@RegisterActivity,
                         "Please enter the password.",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-                psw_field.text.toString() != psw_field_confirm.text.toString() -> {
+                pswField.text.toString() != pswFieldConfirm.text.toString() -> {
                     Toast.makeText(
                         this@RegisterActivity,
                         "The passwords don't match!",
@@ -52,19 +50,18 @@ class RegisterActivity : AppCompatActivity() {
 
                 else -> {
 
-                    val email: String = email_field.text.toString().trim { it <= ' '}
-                    val psw: String = psw_field.text.toString().trim { it <= ' '}
+                    val email: String = emailField.text.toString().trim { it <= ' ' }
+                    val psw: String = pswField.text.toString().trim { it <= ' ' }
 
-                    FirebaseAuth.getInstance().createUserWithEmailAndPassword(email,psw)
+                    FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, psw)
                         .addOnCompleteListener(
                             OnCompleteListener<AuthResult> { task ->
 
                                 //Registration correctly done
-                                if(task.isSuccessful) {
+                                if (task.isSuccessful) {
 
                                     //Firebase registered user
                                     val firebaseUser: FirebaseUser = task.result!!.user!!
-
 
 
                                     /*Toast.makeText(
@@ -73,8 +70,10 @@ class RegisterActivity : AppCompatActivity() {
                                         Toast.LENGTH_SHORT
                                     ).show()*/
 
-                                    val intent = Intent(this@RegisterActivity, UserInfosActivity::class.java)
-                                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                    val intent =
+                                        Intent(this@RegisterActivity, UserInfosActivity::class.java)
+                                    intent.flags =
+                                        Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                                     intent.putExtra("user_id", firebaseUser.uid)
                                     intent.putExtra("email_id", email)
                                     startActivity(intent)

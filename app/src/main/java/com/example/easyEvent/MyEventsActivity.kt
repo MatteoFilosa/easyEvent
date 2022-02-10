@@ -19,13 +19,13 @@ class MyEventsActivity : AppCompatActivity() {
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
-                    Log.d("Success:","${document.id} => ${document.data}")
+                    Log.d("Success:", "${document.id} => ${document.data}")
                     eventText.text = document.data.toString()
 
                 }
             }
             .addOnFailureListener { exception ->
-                Log.w( "Error", "Error getting documents.", exception)
+                Log.w("Error", "Error getting documents.", exception)
             }
     }
 }

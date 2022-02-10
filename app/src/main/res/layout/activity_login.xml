@@ -26,9 +26,9 @@
         android:id="@+id/logo"
         android:layout_width="89dp"
         android:layout_height="111dp"
-        android:layout_marginStart="160dp"
         android:layout_marginTop="88dp"
         android:src="@drawable/splash"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -104,6 +104,8 @@
         android:layout_height="50dp"
         android:layout_marginTop="4dp"
         android:text="@string/register"
+        app:strokeWidth="2dp"
+        app:strokeColor="?attr/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"

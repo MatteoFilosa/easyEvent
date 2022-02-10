@@ -8,7 +8,8 @@
     <fragment
         android:id="@+id/eventListFragment"
         android:name="com.example.easyEvent.ui.EventListFragment"
-        android:label="EventListFragment" >
+        android:label="EventListFragment"
+        tools:layout="@layout/fragment_event_list">
         <action
             android:id="@+id/action_eventListFragment_to_eventDetailFragment"
             app:destination="@id/eventDetailFragment"
@@ -22,5 +23,19 @@
         android:id="@+id/eventDetailFragment"
         android:name="com.example.easyEvent.ui.EventDetailFragment"
         android:label="EventDetailFragment"
-        tools:layout="@layout/fragment_event_detail"/>
+        tools:layout="@layout/fragment_event_detail">
+        <action
+            android:id="@+id/action_eventDetailFragment_to_eventReservedFragment"
+            app:destination="@id/eventReservedFragment"
+            app:enterAnim="@anim/fui_slide_in_right"
+            app:exitAnim="@anim/fui_slide_out_left"
+            app:popEnterAnim="@anim/fui_slide_in_right"
+            app:popExitAnim="@anim/fui_slide_out_left" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/eventReservedFragment"
+        android:name="com.example.easyEvent.ui.EventReservedFragment"
+        android:label="EventReservedFragment"
+        tools:layout="@layout/fragment_event_reserved" />
 </navigation>
