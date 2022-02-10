@@ -90,7 +90,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                 val eventLatLong = LatLng(eventLat, eventLong)
 
                 placeMarkerOnMap(eventLatLong, eventTitle)
-                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLong, 12f))
+
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(eventLatLong, 15f))
 
             }
         }
@@ -99,6 +100,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
     private fun placeMarkerOnMap(currentLatLong: LatLng, title: String) {
         val markerOptions = MarkerOptions().position(currentLatLong)
         markerOptions.title(title)
+
         mMap.addMarker(markerOptions)
     }
 
